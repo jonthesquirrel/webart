@@ -34,7 +34,7 @@ body {
 }
 
 .square {
-    animation: bounce 3s linear infinite;
+    animation: bounce 6s linear infinite;
     box-shadow: inset 0 0 0 0.5rem lime;
     height: 3rem;
     width: 3rem;
@@ -45,7 +45,11 @@ body {
         transform: translateX(0) translateY(0);
     }
 
-    to {
+    50% {
         transform: translateX(100vw) translateY(100vh);
+    }
+
+    to {
+        transform: translateX(0) translateY(0);
     }
 }
