@@ -1,6 +1,13 @@
 body {
+    background-color: #3c4044;
+    color: white;
+    font-family: sans-serif;
     text-align: center;
     display: inline-block;
+}
+
+a {
+    color: white;
 }
 
 ul {
