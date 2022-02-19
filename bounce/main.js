@@ -13,13 +13,10 @@ const createSquareList = () => {
             positionY: 0,
             directionX: "positive",
             directionY: "negative",
-            size: 50
+            size: 50,
+            speed: 4
         })
     }
-}
-
-const getOptimalSpeedForViewportSize = () => {
-    return ((getViewportWidth() + getViewportHeight()) / 1000) + 2
 }
 
 const setSquarePosition = (square, positionX, positionY) => {
@@ -74,20 +71,19 @@ const reverseSquareDirectionIfOutsideViewport = (square) => {
 
 const autoMoveSquare = (square) => {
     reverseSquareDirectionIfOutsideViewport(square)
-    const speed = getOptimalSpeedForViewportSize()
     let newPositionX
     let newPositionY
     if (square.directionX == "positive") {
-        newPositionX = square.positionX + speed
+        newPositionX = square.positionX + square.speed
     }
     if (square.directionX == "negative") {
-        newPositionX = square.positionX - speed
+        newPositionX = square.positionX - square.speed
     }
     if (square.directionY == "positive") {
-        newPositionY = square.positionY + speed
+        newPositionY = square.positionY + square.speed
     }
     if (square.directionY == "negative") {
-        newPositionY = square.positionY - speed
+        newPositionY = square.positionY - square.speed
     }
 
     setSquarePosition(square, newPositionX, newPositionY)
