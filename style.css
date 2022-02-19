@@ -1,7 +1,8 @@
 body {
     text-align: center;
+    display: inline-block;
 }
 
-li {
-    list-style: none;
+ul {
+    text-align: left;
 }
