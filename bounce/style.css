@@ -9,22 +9,18 @@ body {
 }
 
 .menu {
-    background-color: black;
     color: white;
     font-family: sans-serif;
     left: 0vw;
-    min-height: 2rem;
-    padding-top: 0.75rem;
     position: fixed;
-    top: 1vh;
+    top: 2rem;
     z-index: 1;
 }
 
 .menu a {
+    background-color: black;
     color: white;
-    padding-bottom: 0.75rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding: 0.8rem;
     text-decoration: none;
     vertical-align: middle;
 }
