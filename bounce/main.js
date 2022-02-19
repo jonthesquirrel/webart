@@ -3,7 +3,8 @@ const randomInRange = (min, max) => Math.round(Math.random() * (max - min) + min
 let squareList = []
 
 const createSquareList = () => {
-    for (element of document.querySelectorAll(".square")) {
+    console.log(document.querySelectorAll(".square"))
+    for (const element of document.querySelectorAll(".square")) {
         squareList.push({
             element: element,
             positionX: 0,
@@ -27,7 +28,7 @@ const setSquarePosition = (square, positionX, positionY) => {
 }
 
 const randomlyPositionAllSquares = () => {
-    for (square of squareList) {
+    for (const square of squareList) {
         let randomX = randomInRange(0, document.documentElement.clientWidth)
         let randomY = randomInRange(0, document.documentElement.clientHeight)
         setSquarePosition(square, randomX, randomY)
@@ -39,7 +40,7 @@ const setSquareVisible = (element) => {
 }
 
 const makeAllSquaresVisible = () => {
-    for (square of squareList) {
+    for (const square of squareList) {
         setSquareVisible(square.element)
     }
 }
