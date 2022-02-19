@@ -6,12 +6,12 @@ body {
 }
 
 a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: aqua;
 }
 
 a:hover {
-    text-decoration: underline;
+    font-style: italic;
 }
 
 .project-link {
