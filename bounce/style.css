@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: #212123;
     color: white;
     height: 100vh;
     margin: 0;
@@ -34,22 +34,7 @@ body {
 }
 
 .square {
-    animation: bounce 6s linear infinite;
-    box-shadow: inset 0 0 0 0.5rem lime;
     height: 3rem;
+    position: fixed;
     width: 3rem;
-}
-
-@keyframes bounce {
-    from {
-        transform: translateX(0) translateY(0);
-    }
-
-    50% {
-        transform: translateX(100vw) translateY(100vh);
-    }
-
-    to {
-        transform: translateX(0) translateY(0);
-    }
 }
