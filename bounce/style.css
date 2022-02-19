@@ -30,7 +30,5 @@ body {
 }
 
 .square {
-    height: 3rem;
     position: fixed;
-    width: 3rem;
 }

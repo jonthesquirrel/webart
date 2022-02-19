@@ -1,4 +1,6 @@
 const randomInRange = (min, max) => Math.round(Math.random() * (max - min) + min)
+const getViewportWidth = () => document.documentElement.clientWidth
+const getViewportHeight = () => document.documentElement.clientHeight
 
 let squareList = []
 
@@ -11,6 +13,7 @@ const createSquareList = () => {
             positionY: 0,
             directionX: "positive",
             directionY: "negative",
+            size: 50,
             speed: 10
         })
     }
@@ -22,14 +25,22 @@ const setSquarePosition = (square, positionX, positionY) => {
     square.positionY = positionY
 }
 
-const getViewportWidth = () => document.documentElement.clientWidth
-const getViewportHeight = () => document.documentElement.clientHeight
-
 const randomlyPositionAllSquares = () => {
     for (const square of squareList) {
         let randomX = randomInRange(0, getViewportWidth())
         let randomY = randomInRange(0, getViewportHeight())
         setSquarePosition(square, randomX, randomY)
+    }
+}
+
+const initSquareSize = (square) => {
+    square.element.style.width = `${square.size}px`
+    square.element.style.height = `${square.size}px`
+}
+
+const initAllSquaresSize = () => {
+    for (const square of squareList) {
+        initSquareSize(square)
     }
 }
 
@@ -44,13 +55,13 @@ const makeAllSquaresVisible = () => {
 }
 
 const reverseSquareDirectionIfOutsideViewport = (square) => {
-    if (square.positionX > getViewportWidth()) {
+    if (square.positionX > getViewportWidth() - square.size) {
         square.directionX = "negative"
     }
     if (square.positionX < 0) {
         square.directionX = "positive"
     }
-    if (square.positionY > getViewportHeight()) {
+    if (square.positionY > getViewportHeight() - square.size) {
         square.directionY = "negative"
     }
     if (square.positionY < 0) {
@@ -92,6 +103,7 @@ const animateSquares = () => {
 const startApp = () => {
     createSquareList()
     randomlyPositionAllSquares()
+    initAllSquaresSize()
     makeAllSquaresVisible()
     animateSquares()
 }
