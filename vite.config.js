@@ -8,5 +8,8 @@ export default {
                 bounce: resolve(__dirname, 'bounce/index.html')
             }
         }
+    },
+    server: {
+        host: true
     }
 }
