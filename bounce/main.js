@@ -11,14 +11,9 @@ const createSquareList = () => {
             positionY: 0,
             directionX: "positive",
             directionY: "negative",
-            speed: "1"
+            speed: 10
         })
     }
-}
-
-const animateSquares = () => {
-    autoMoveAllSquares()
-    requestAnimationFrame(animateSquares)
 }
 
 const setSquarePosition = (square, positionX, positionY) => {
@@ -27,10 +22,13 @@ const setSquarePosition = (square, positionX, positionY) => {
     square.positionY = positionY
 }
 
+const getViewportWidth = () => document.documentElement.clientWidth
+const getViewportHeight = () => document.documentElement.clientHeight
+
 const randomlyPositionAllSquares = () => {
     for (const square of squareList) {
-        let randomX = randomInRange(0, document.documentElement.clientWidth)
-        let randomY = randomInRange(0, document.documentElement.clientHeight)
+        let randomX = randomInRange(0, getViewportWidth())
+        let randomY = randomInRange(0, getViewportHeight())
         setSquarePosition(square, randomX, randomY)
     }
 }
@@ -45,15 +43,57 @@ const makeAllSquaresVisible = () => {
     }
 }
 
-const autoMoveAllSquares = () => {
+const reverseSquareDirectionIfOutsideViewport = (square) => {
+    if (square.positionX > getViewportWidth()) {
+        square.directionX = "negative"
+    }
+    if (square.positionX < 0) {
+        square.directionX = "positive"
+    }
+    if (square.positionY > getViewportHeight()) {
+        square.directionY = "negative"
+    }
+    if (square.positionY < 0) {
+        square.directionY = "positive"
+    }
+}
 
+const autoMoveSquare = (square) => {
+    reverseSquareDirectionIfOutsideViewport(square)
+    let newPositionX
+    let newPositionY
+    if (square.directionX == "positive") {
+        newPositionX = square.positionX + square.speed
+    }
+    if (square.directionX == "negative") {
+        newPositionX = square.positionX - square.speed
+    }
+    if (square.directionY == "positive") {
+        newPositionY = square.positionY + square.speed
+    }
+    if (square.directionY == "negative") {
+        newPositionY = square.positionY - square.speed
+    }
+
+    setSquarePosition(square, newPositionX, newPositionY)
+}
+
+const autoMoveAllSquares = () => {
+    for (const square of squareList) {
+        autoMoveSquare(square)
+    }
+}
+
+const animateSquares = () => {
+    autoMoveAllSquares()
+    requestAnimationFrame(animateSquares)
 }
 
 const startApp = () => {
     createSquareList()
     randomlyPositionAllSquares()
     makeAllSquaresVisible()
-    requestAnimationFrame(animateSquares)
+    animateSquares()
 }
 
 window.addEventListener("load", startApp)
