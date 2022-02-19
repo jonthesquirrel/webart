@@ -3,13 +3,26 @@ body {
     color: white;
     font-family: sans-serif;
     text-align: center;
-    display: inline-block;
 }
 
 a {
-    color: white;
+    text-decoration: none;
+    color: aqua;
 }
 
-ul {
-    text-align: left;
+a:hover {
+    text-decoration: underline;
+}
+
+.project-link {
+    background-color: white;
+    color: #3c4044;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 0.75rem;
+    text-decoration: underline;
+}
+
+.projects {
+    padding: 1.25rem;
 }
