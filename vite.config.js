@@ -5,7 +5,7 @@ export default {
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                bounce: resolve(__dirname, 'bounce/index.html')
+                bouncing: resolve(__dirname, 'bouncing/index.html')
             }
         }
     },
