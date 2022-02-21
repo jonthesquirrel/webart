@@ -14,15 +14,13 @@ a:hover {
     font-style: italic;
 }
 
-.project-link {
+.projects>a {
     background-color: white;
     color: #3c4044;
+    display: inline-block;
     font-size: x-large;
     font-weight: bold;
+    margin: 0.5rem;
     padding: 0.75rem;
     text-decoration: underline;
-}
-
-.projects {
-    padding: 1.25rem;
 }
