@@ -4,4 +4,4 @@ This piece uses `requestAnimationFrame()` to move the squares every frame. The p
 
 ## Zooming
 
-This piece uses only CSS Animation using an inset `border-box`, no JavaScript!
+This piece uses only CSS Animation by changing the size of an inset `border-box`. No JavaScript needed!
