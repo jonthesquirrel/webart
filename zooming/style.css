@@ -53,10 +53,10 @@ body {
 
 @keyframes zoom0 {
     from {
-        box-shadow: inset 0 0 0 0 rgb(255, 0, 0);
+        box-shadow: inset 0 0 0 0 rgb(246, 69, 69);
     }
     to {
-        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(255, 0, 0);
+        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(246, 69, 69);
     }
 }
 
@@ -116,19 +116,19 @@ body {
 
 @keyframes zoom7 {
     from {
-        box-shadow: inset 0 0 0 0 rgb(0, 64, 255);
+        box-shadow: inset 0 0 0 0 rgb(93, 0, 255);
     }
     to {
-        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(0, 64, 255);
+        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(93, 0, 255);
     }
 }
 
 @keyframes zoom8 {
     from {
-        box-shadow: inset 0 0 0 0 rgb(93, 0, 255);
+        box-shadow: inset 0 0 0 0 rgb(149, 0, 255);
     }
     to {
-        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(93, 0, 255);
+        box-shadow: inset 0 0 0 calc(120vw / 2) rgb(149, 0, 255);
     }
 }
 
