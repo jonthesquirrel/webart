@@ -28,3 +28,29 @@ body {
 .menu a:hover {
     text-decoration: underline;
 }
+
+.square {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: zoom;
+    animation-timing-function: linear;
+    height: max(100vw, 100vh);
+    left: 50vw;
+    margin-left: min(-50vw, -50vh);
+    margin-top: min(-50vw, -50vh);
+    position: fixed;
+    top: 50vh;
+    width: max(100vw, 100vh);
+}
+
+@keyframes zoom {
+    from {
+        box-shadow: inset 0 0 0 0 teal;
+    }
+    to {
+        /* box-shadow: inset 0 0 0 calc(100vw / 2) teal; */
+        /* ^ works on chrome */
+        /* v works on firefox but animation doesn't move on chrome */
+        box-shadow: inset 0 0 0 calc(max(100vw, 100vh) / 2) teal;
+    }
+}
