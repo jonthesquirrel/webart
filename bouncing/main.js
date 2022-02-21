@@ -1,6 +1,10 @@
 const randomInRange = (min, max) => Math.round(Math.random() * (max - min) + min)
 const getViewportWidth = () => document.documentElement.clientWidth
 const getViewportHeight = () => document.documentElement.clientHeight
+const getRandomDirection = () => {
+    const choices = ["positive", "negative"]
+    return choices[randomInRange(0, choices.length - 1)]
+}
 
 let squareList = []
 
@@ -11,8 +15,8 @@ const createSquareList = () => {
             element: element,
             positionX: 0,
             positionY: 0,
-            directionX: "positive",
-            directionY: "negative",
+            directionX: getRandomDirection(),
+            directionY: getRandomDirection(),
             size: 50,
             speed: 4
         })
