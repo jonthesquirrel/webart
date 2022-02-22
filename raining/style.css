@@ -29,6 +29,7 @@ body {
     text-decoration: underline;
 }
 
-.square {
-    position: fixed;
+.rain {
+    color: rgb(75, 186, 75);
+    font-family: monospace;
 }
