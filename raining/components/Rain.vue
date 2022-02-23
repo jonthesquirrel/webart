@@ -4,8 +4,8 @@ import { sample } from 'lodash-es'
 onMounted(() => {
     const characterPossibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
 
-    const getViewportWidthInCharacters = () => window.innerWidth / parseFloat(window.getComputedStyle(document.body).fontSize) * 2.05
-    const getViewportHeightInCharacters = () => window.innerHeight / parseFloat(window.getComputedStyle(document.body).fontSize) * 1.1
+    const getViewportWidthInCharacters = () => Math.ceil(window.innerWidth / parseFloat(window.getComputedStyle(document.body).fontSize) * 2.05)
+    const getViewportHeightInCharacters = () => Math.ceil(window.innerHeight / parseFloat(window.getComputedStyle(document.body).fontSize) * 1.1)
     // not completely accurate but close enough
 
     let trails = []
@@ -16,14 +16,13 @@ onMounted(() => {
         }
         trail.element.classList.add('trail')
         document.querySelector('.rain').appendChild(trail.element)
-        trails.push(trail)
-
         for (let i = 0; i < getViewportHeightInCharacters(); i++) {
             let character = document.createElement('span')
             character.classList.add('character')
             character.innerText = sample(characterPossibilities)
             trail.element.appendChild(character)
         }
+        trails.push(trail)
     }
 
     const removeTrail = () => {
@@ -31,15 +30,22 @@ onMounted(() => {
         trail.element.remove()
     }
 
-    for (let i = 0; i < getViewportWidthInCharacters(); i++) {
-        addTrail()
+    const updateTrails = () => {
+        const currentWidth = trails.length
+        const viewportWidth = getViewportWidthInCharacters()
+        if (currentWidth < viewportWidth) {
+            for (let i = currentWidth; i < viewportWidth; i++) {
+                addTrail()
+            }
+        } else if (currentWidth > viewportWidth) {
+            for (let i = currentWidth; i > viewportWidth; i--) {
+                removeTrail()
+            }
+        }
     }
 
-    // const updateTrails = () => {
-    //     addTrail()
-    // }
-
-    // setInterval(updateTrails, 1000)
+    updateTrails()
+    setInterval(updateTrails, 1000)
 })
 </script>
 
