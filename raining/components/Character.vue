@@ -1,5 +1,7 @@
 <template>
-    <div class="character">L</div>
+    <div class="character">
+        L
+    </div>
 </template>
 
 <style scoped>
