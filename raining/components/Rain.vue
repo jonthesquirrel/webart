@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
+import Logger from './Logger.vue'
 import { sample } from 'lodash-es'
+
 onMounted(() => {
     const characterPossibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
 
@@ -9,6 +11,10 @@ onMounted(() => {
     // not completely accurate but close enough
 
     let trails = []
+
+    const debugText = (text) => {
+        document.querySelector('#logger').innerText = text
+    }
 
     const addTrail = () => {
         let trail = {
@@ -30,9 +36,11 @@ onMounted(() => {
         trail.element.remove()
     }
 
+    // will this have race conditions?
     const updateTrails = () => {
         const currentWidth = trails.length
         const viewportWidth = getViewportWidthInCharacters()
+        debugText(`currentWidth: ${currentWidth} / viewportWidth: ${viewportWidth}`)
         if (currentWidth < viewportWidth) {
             for (let i = currentWidth; i < viewportWidth; i++) {
                 addTrail()
@@ -51,7 +59,7 @@ onMounted(() => {
 
 <template>
     <div class="rain">
-
+        <Logger id="logger"></Logger>
     </div>
 </template>
 
