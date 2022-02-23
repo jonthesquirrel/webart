@@ -4,11 +4,7 @@ import Character from './Character.vue'
 
 <template>
     <div class="trail">
-        <Character></Character>
-        <Character></Character>
-        <Character></Character>
-        <Character></Character>
-        <Character></Character>
+        <Character v-for="n in 100"></Character>
     </div>
 </template>
 

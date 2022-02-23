@@ -4,13 +4,13 @@ import Trail from './Trail.vue'
 
 <template>
     <div class="rain">
-        <Trail></Trail>
-        <Trail></Trail>
+        <Trail v-for="n in 200"></Trail>
     </div>
 </template>
 
 <style scoped>
 .rain {
-    
+    overflow: hidden;
+    width: auto;
 }
 </style>
