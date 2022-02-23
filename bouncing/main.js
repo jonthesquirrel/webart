@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import randomInRange from '../functions/randomInRange'
 
 createApp(App).mount('#app')
 
-const randomInRange = (min, max) => Math.round(Math.random() * (max - min) + min)
 const getViewportWidth = () => document.documentElement.clientWidth
 const getViewportHeight = () => document.documentElement.clientHeight
 const getRandomDirection = () => {
