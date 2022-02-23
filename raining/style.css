@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     position: fixed;
-    width: 200ch;
+    width: 200vw;
 }
 
 .trail {

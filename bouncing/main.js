@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import randomInRange from '../functions/randomInRange'
+import { random, sample } from 'lodash-es'
 
 createApp(App).mount('#app')
 
@@ -8,7 +8,7 @@ const getViewportWidth = () => document.documentElement.clientWidth
 const getViewportHeight = () => document.documentElement.clientHeight
 const getRandomDirection = () => {
     const choices = ["positive", "negative"]
-    return choices[randomInRange(0, choices.length - 1)]
+    return sample(choices)
 }
 
 let squareList = []
@@ -36,8 +36,8 @@ const setSquarePosition = (square, positionX, positionY) => {
 
 const randomlyPositionAllSquares = () => {
     for (const square of squareList) {
-        let randomX = randomInRange(0, getViewportWidth())
-        let randomY = randomInRange(0, getViewportHeight())
+        let randomX = random(0, getViewportWidth())
+        let randomY = random(0, getViewportHeight())
         setSquarePosition(square, randomX, randomY)
     }
 }

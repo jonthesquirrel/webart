@@ -1,18 +1,34 @@
 <script setup>
 import { onMounted } from 'vue'
-import randomArrayItem from '../../functions/randomArrayItem'
+import { sample } from 'lodash-es'
 onMounted(() => {
     const characterPossibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
-    for (let i = 0; i < 200; i++) {
-        let trail = document.createElement('div')
-        trail.classList.add('trail')
-        document.querySelector('.rain').appendChild(trail)
+
+    let trails = []
+
+    const addTrail = () => {
+        let trail = {
+            element: document.createElement('div')
+        }
+        trail.element.classList.add('trail')
+        document.querySelector('.rain').appendChild(trail.element)
+        trails.push(trail)
+
         for (let i = 0; i < 50; i++) {
             let character = document.createElement('span')
             character.classList.add('character')
-            character.innerText = randomArrayItem(characterPossibilities)
-            trail.appendChild(character)
+            character.innerText = sample(characterPossibilities)
+            trail.element.appendChild(character)
         }
+    }
+
+    const removeTrail = () => {
+        let trail = trails.pop()
+        trail.element.remove()
+    }
+
+    for (let i = 0; i < 200; i++) {
+        addTrail()
     }
 })
 </script>
