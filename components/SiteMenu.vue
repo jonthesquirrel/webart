@@ -11,7 +11,7 @@
     left: 0vw;
     position: fixed;
     top: 2rem;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .menu a {
