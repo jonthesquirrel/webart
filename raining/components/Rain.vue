@@ -4,6 +4,8 @@ import { sample } from 'lodash-es'
 onMounted(() => {
     const characterPossibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
 
+    const getViewportWidthInCharacters = () => window.innerWidth / parseFloat(window.getComputedStyle(document.body).fontSize) * 2.05
+
     let trails = []
 
     const addTrail = () => {
@@ -27,9 +29,15 @@ onMounted(() => {
         trail.element.remove()
     }
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < getViewportWidthInCharacters(); i++) {
         addTrail()
     }
+
+    // const updateTrails = () => {
+    //     addTrail()
+    // }
+
+    // setInterval(updateTrails, 1000)
 })
 </script>
 
