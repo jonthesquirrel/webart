@@ -1,8 +1,9 @@
 <script setup>
 import SiteMenu from '../components/SiteMenu.vue'
+import Rain from './components/Rain.vue'
 </script>
 
 <template>
     <SiteMenu></SiteMenu>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laborum aliquam eveniet distinctio a veniam quibusdam eligendi ipsum saepe nemo. Architecto deleniti culpa ut incidunt voluptatibus quisquam quae fuga tenetur?</p>
+    <Rain></Rain>
 </template>
