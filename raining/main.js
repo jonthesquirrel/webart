@@ -1,13 +1,4 @@
-const createColumn = () => {
-    
-}
+import { createApp } from 'vue'
+import App from './App.vue'
 
-const removeColumn = () => {
-
-}
-
-const load = () => {
-    console.log("loaded")
-}
-
-window.addEventListener("load", load)
+createApp(App).mount('#app')
