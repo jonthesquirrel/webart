@@ -5,6 +5,8 @@ onMounted(() => {
     const characterPossibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
 
     const getViewportWidthInCharacters = () => window.innerWidth / parseFloat(window.getComputedStyle(document.body).fontSize) * 2.05
+    const getViewportHeightInCharacters = () => window.innerHeight / parseFloat(window.getComputedStyle(document.body).fontSize) * 1.1
+    // not completely accurate but close enough
 
     let trails = []
 
@@ -16,7 +18,7 @@ onMounted(() => {
         document.querySelector('.rain').appendChild(trail.element)
         trails.push(trail)
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < getViewportHeightInCharacters(); i++) {
             let character = document.createElement('span')
             character.classList.add('character')
             character.innerText = sample(characterPossibilities)
