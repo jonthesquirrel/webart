@@ -27,5 +27,6 @@ onMounted(() => {
 .rain {
     color: limegreen;
     font-family: monospace;
+    user-select: none;
 }
 </style>
