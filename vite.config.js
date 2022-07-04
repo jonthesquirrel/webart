@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 
 export default {
+    base: "/webart/",
     build: {
         rollupOptions: {
             input: {
